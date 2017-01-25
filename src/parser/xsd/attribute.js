@@ -30,6 +30,9 @@ class Attribute extends XSDElement {
 
     if (this.ref) {
       // Ref to a global attribute
+      if (typeof descriptor === "undefined") {
+        var descriptor = {};
+      }
       descriptor.form = 'qualified';
       this.descriptor = this.ref.describe(definitions);
     } else {
